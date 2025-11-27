@@ -114,7 +114,7 @@ export default function ApplicationForm({ jobId, onBack, onSubmit }: Application
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-2 border border-border rounded-lg bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                  placeholder="+1 (555) 000-0000"
+                  placeholder="+91 98765 43210"
                 />
               </div>
               <div>
@@ -217,7 +217,7 @@ export default function ApplicationForm({ jobId, onBack, onSubmit }: Application
                   value={formData.salaryExpectations}
                   onChange={handleChange}
                   className="w-full px-4 py-2 border border-border rounded-lg bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                  placeholder="e.g., $80,000 - $120,000"
+                  placeholder="e.g., Rs.80,000 - Rs.120,000"
                 />
               </div>
             </div>
