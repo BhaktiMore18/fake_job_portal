@@ -5,12 +5,13 @@ import { MapPin, Briefcase, Calendar } from "lucide-react"
 
 interface JobCardProps {
   job: Job
-  onSelect: () => void
+  onSelect?: () => void
 }
 
 export default function JobCard({ job, onSelect }: JobCardProps) {
   return (
-    <button
+    <div
+      role="button"
       onClick={onSelect}
       className="w-full text-left group bg-card border border-border rounded-lg p-6 hover:shadow-md hover:border-primary transition-all duration-200 cursor-pointer"
     >
@@ -43,6 +44,6 @@ export default function JobCard({ job, onSelect }: JobCardProps) {
         <span className="text-xs text-muted-foreground">View details</span>
         <span className="text-primary opacity-0 group-hover:opacity-100 transition-opacity">→</span>
       </div>
-    </button>
+    </div>
   )
 }

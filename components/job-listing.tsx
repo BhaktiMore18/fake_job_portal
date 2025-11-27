@@ -4,13 +4,15 @@ import { Search, Zap } from "lucide-react"
 import JobCard from "./job-card"
 import { jobsData } from "@/lib/jobs-data"
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 
 interface JobListingProps {
-  onSelectJob: (jobId: number) => void
+  onSelectJob?: (jobId: number) => void
 }
 
 export default function JobListing({ onSelectJob }: JobListingProps) {
   const [searchTerm, setSearchTerm] = useState("")
+  const router = useRouter()
 
   const filteredJobs = jobsData
     .map((job, originalIndex) => ({ job, originalIndex }))
@@ -50,7 +52,13 @@ export default function JobListing({ onSelectJob }: JobListingProps) {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
           {filteredJobs.length > 0 ? (
             filteredJobs.map(({ job, originalIndex }) => (
-              <JobCard key={originalIndex} job={job} onSelect={() => onSelectJob(originalIndex)} />
+              <JobCard
+                key={originalIndex}
+                job={job}
+                onSelect={() => {
+                  router.push(`/jobs/${originalIndex}`)
+                }}
+              />
             ))
           ) : (
             <div className="col-span-full text-center py-16">

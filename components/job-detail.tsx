@@ -3,15 +3,18 @@
 import { ArrowLeft, Building2, Users, Globe, Target, Award, TrendingUp, Briefcase } from "lucide-react"
 import { jobsData } from "@/lib/jobs-data"
 import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation"
 
 interface JobDetailProps {
   jobId: number
-  onBack: () => void
-  onApply: () => void
 }
 
-export default function JobDetail({ jobId, onBack, onApply }: JobDetailProps) {
+export default function JobDetail({ jobId }: JobDetailProps) {
+  const router = useRouter()
   const job = jobsData[jobId]
+
+  const onBack = () => router.back()
+  const onApply = () => router.push(`/jobs/${jobId}/apply`)
 
   return (
     <div className="min-h-screen bg-background">
